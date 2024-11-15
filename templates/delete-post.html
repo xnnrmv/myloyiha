@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content%}
+<h2> Postni o'chirish </h2>
+<form method = "post" enctype = "multipart/form-data">
+    {% csrf_token %}
+    Postni o'chirishni istaysizmi
+    <input type = "Submit" value = "DEL">
+
+</form>
+{% endblock %}

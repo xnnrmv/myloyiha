@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Yangiliklar veb sayti{% endblock %}</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <!-- Main jQuery -->
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Bootstrap Js -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <!-- Authenticated User Message -->
+
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Yangiliklar veb sayti</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Asosiy oyna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'all_news' %}">Yangiliklar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'all-category' %}">Toifalar bo'yicha</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'all-region' %}">Mintaqalar bo'yicha</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'create-post' %}">Yangi xabar qo'shish</a>
+                    </li>
+                    <li class="nav-item">
+                    {% if user.is_authenticated %}
+                            <a class="nav-link" href="{% url 'logout' %}">Chiqish</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Kirish</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <hr />
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>&copy; Yangiliklar veb sayti, 2024</p>
+        </div>
+    </footer>
+</body>
+</html>
