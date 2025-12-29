@@ -5,4 +5,3 @@ To'rtinchi commit
 Beshinchi commit
 Oltinchi commit
 Yettinchi commit
-Sakkizinchi commit
